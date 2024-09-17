@@ -1,43 +1,52 @@
-const ramNum = Math.random();
-let compMove = '';
-if (ramNum >= 0 && ramNum < 1 / 3) {
-    compMove = 'Rock';
-} else if (ramNum >= 1 / 3 && ramNum <= 2 / 3) {
-    compMove = 'Paper';
-} else if (ramNum >= 2 / 3 && ramNum < 1) {
-    compMove = 'Scissor';
-}
-
-function Paper() {
-    if (compMove == 'Paper') {
-        alert(`You picked paper. Computer picked ${compMove}.You Tie1`)
-    } else if (compMove == 'Rock') {
-        alert(`You picked paper. Computer picked ${compMove}.You Win!`)
-    } else if (compMove == 'Scissor') {
-        alert(`You picked paper. Computer picked ${compMove}.You Lose!`)
+function getCompMove() {
+    let Move = '';
+    const ramNum = Math.random();
+    if (ramNum >= 0 && ramNum < 1 / 3) {
+        Move = 'Rock';
+    } else if (ramNum >= 1 / 3 && ramNum < 2 / 3) { // <= changed to <
+        Move = 'Paper';
+    } else {
+        Move = 'Scissor';
     }
+    return Move;
 }
 
-function Rock() {
-    if (compMove == 'Paper') {
-        alert(`You picked Rock. Computer picked ${compMove}.You Lose!`)
-    } else if (compMove == 'Rock') {
-        alert(`You picked Rock. Computer picked ${compMove}.You Tie!`)
-    } else if (compMove == 'Scissor') {
-        alert(`You picked Rock. Computer picked ${compMove}.You Win!`)
+let score = {
+    wins: 0,
+    lose: 0,
+    tie: 0,
+};
+
+function playerAction(playerMove) {
+    let compMove = getCompMove();
+    let result = '';
+
+    // Check for a tie first
+    if (playerMove === compMove) {
+        result = 'Tie';
+    } else if (playerMove === "Rock") {
+        result = (compMove === "Scissor") ? 'Win' : 'Lose';
+    } else if (playerMove === "Paper") {
+        result = (compMove === "Rock") ? 'Win' : 'Lose';
+    } else if (playerMove === "Scissor") {
+        result = (compMove === "Paper") ? 'Win' : 'Lose';
     }
-}
 
-function Scissor() {
-    if (compMove == 'Paper') {
-        alert(`You picked Scissor. Computer picked ${compMove}.You Win!`)
-    } else if (compMove == 'Rock') {
-        alert(`You picked Scissor. Computer picked ${compMove}.You Lose!`)
-    } else if (compMove == 'Scissor') {
-        alert(`You picked Scissor. Computer picked ${compMove}.You Tie!`)
+
+    if (result === 'Win') {
+        score.wins += 1;
+    } else if (result === 'Lose') {
+        score.lose += 1;
+    } else if (result === 'Tie') {
+        score.tie += 1;
     }
+
+    alert(`You picked ${playerMove}. Computer picked ${compMove}. You ${result}!
+W:${score.wins} L:${score.lose} T:${score.tie}`);
 }
 
-function reloadPage() {
-    location.reload();
+function resetScore() {
+    score.wins = 0;
+    score.lose = 0;
+    score.tie = 0;
 }

@@ -21,15 +21,18 @@
 
 
     <div class="Move">
-        <button style="background-color: rgb(243, 38, 38);" class="btn" onclick="Rock()">Rock</button>
-        <button style="background-color: rgb(237, 237, 7);" class="btn" onclick="Paper()">Paper</button>
-        <button style="background-color: rgb(2, 173, 2);" class="btn" onclick="Scissor()">Scissor</button>
+
+        <button style="background-color: rgb(243, 38, 38);" class="btn" onclick="playerAction('Rock')">Rock</button>
+
+        <button style="background-color: rgb(237, 237, 7);" class="btn" onclick="playerAction('Paper')">Paper</button>
+
+        <button style="background-color: rgb(2, 173, 2);" class="btn" onclick="playerAction('Scissor')">Scissor</button>
     </div>
 
 
 
     <div class="cont-reButn">
-        <button class="mbtn" onclick="reloadPage()">Play Again &#10227;</button>
+        <button class="mbtn" onclick=resetScore()>Reset Score &#10227;</button>
     </div>
 </body>
 
