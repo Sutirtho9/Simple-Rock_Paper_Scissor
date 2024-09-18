@@ -11,17 +11,21 @@ function getCompMove() {
     return Move;
 }
 
-let score = {
+let score = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
     lose: 0,
-    tie: 0,
+    tie: 0
 };
+
+
+
+console.log(JSON.parse(localStorage.getItem('score')));
 
 function playerAction(playerMove) {
     let compMove = getCompMove();
     let result = '';
 
-    // Check for a tie first
+
     if (playerMove === compMove) {
         result = 'Tie';
     } else if (playerMove === "Rock") {
@@ -41,6 +45,8 @@ function playerAction(playerMove) {
         score.tie += 1;
     }
 
+    localStorage.setItem('score', JSON.stringify(score));
+
     alert(`You picked ${playerMove}. Computer picked ${compMove}. You ${result}!
 W:${score.wins} L:${score.lose} T:${score.tie}`);
 }
@@ -49,4 +55,6 @@ function resetScore() {
     score.wins = 0;
     score.lose = 0;
     score.tie = 0;
+
+    localStorage.removeItem('score');
 }
