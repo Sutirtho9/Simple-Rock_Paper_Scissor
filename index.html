@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RCP</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="Rockpaperscissor.css">
-    <a href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"></a>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="RockpaperScissor.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="Images/Logo.svg">
 
 </head>
 
 <body>
     <div class="heading">
-        <h1>Rock Paper Scissor!</h1>
+        <h1>Rock Paper Scissors!</h1>
         <h2 class="ins">Select any one of the following to play against the computer</h2>
 
     </div>
@@ -22,16 +23,16 @@
 
     <div class="Move">
 
-        <button style="background-color: rgb(243, 38, 38);" class="btn" onclick="playerAction('Rock')">Rock</button>
+        <button  class="btn" onclick="playerAction('rock')"><img src="Images/rock-emoji.png" alt="rock-emoji"></button>
 
-        <button style="background-color: rgb(237, 237, 7);" class="btn" onclick="playerAction('Paper')">Paper</button>
+        <button  class="btn" onclick="playerAction('paper')"><img src="Images/paper-emoji.png" alt="paper-emoji"></button>
 
-        <button style="background-color: rgb(2, 173, 2);" class="btn" onclick="playerAction('Scissor')">Scissor</button>
+        <button  class="btn" onclick="playerAction('scissors')"><img src="Images/scissors-emoji.png" alt="scissors-emoji"></button>
     </div>
     
     <div class="score-cont">
         <h3 class="result"></h3>
-        <h3 class="moves"></h3>
+        <p class="moves"></p>
         <h3 class="score">Scoreboard</h3>
     <table border=1 class="score-table" cellpadding="10">
         <thead>
@@ -54,6 +55,11 @@
     <div class="cont-reButn">
         <button class="mbtn" onclick=resetScore()>Reset Score &#10227;</button>
     </div>
+
+    <footer class="footer">
+  <img src="Images/Logo.png" alt="Dev Logo" class="logo">
+  <p>© 2025 Rock Paper Scissor | Developed by <span class="dev-name">Orange Org</span></p>
+</footer>
 </body>
 
 </html>

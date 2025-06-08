@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-    color: rgb(0, 157, 255);
+    color: rgb(255, 132, 0);
     font-size: 50px;
 }
 
@@ -23,21 +23,32 @@ h2 {
 }
 
 .Move {
-    margin-top: 50px;
-    margin-bottom: 120px;
     display: flex;
-    justify-content:space-around;
-    text-align: center;
-    gap: 0px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 10px;
+
 }
 
 .btn {
     font-size: 20px;
     padding: 15px 30px;
-    border-radius: 20px;
+    border-radius: 50%;
     border: none;
     font-weight: 700;
     transition: all 0.5s ease-in-out;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: transparent;
+    border: 4px solid white;
+}
+.btn img{
+   
+    height: 15vw;
+    width: 15vw;
+    max-width: 120px;
+    max-height: 120px;
 }
 
 .cont-reButn {
@@ -48,13 +59,14 @@ h2 {
 }
 
 .mbtn {
-    font-size: 15px;
+    font-size: 30px;
     padding: 15px 30px;
     border-radius: 20px;
     border: none;
     font-weight: 700;
-    background-color: rgb(0, 157, 255);
+    background-color: rgb(255, 132, 0);
     transition: all 0.5s ease-in-out;
+    cursor: pointer;
 }
 .score-cont{
     display: flex;
@@ -71,11 +83,15 @@ h2 {
 }
 .result{
     color: white;
-    font-size: 25px;
+    font-size: 35px;
 }
 .moves{
     color: white;
     font-size: 25px;
+}
+.score-dis{
+    height: 80px;
+    width: 80px;
 }
 .score-table{
     margin: 0 auto;
@@ -87,8 +103,8 @@ h2 {
 .score-table th,
     .score-table td {
         padding: 12px;
-        border: 2px solid rgb(0, 157, 255);
-        font-size: 16px;
+        border: 2px solid rgb(255, 132, 0);
+        font-size: 20px;
 
     }
 .score-table th {
@@ -110,4 +126,77 @@ h2 {
 .btn:active,
 .mbtn:active {
     opacity: 1;
+}
+
+/*Responsiveness*/
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .btn img {
+        height: 20vw;
+        width: 20vw;
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    .mbtn {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+
+    .score-table {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .result,
+    .moves,
+    .score {
+        font-size: 18px;
+    }
+
+    .score-table th,
+    .score-table td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn img {
+        height: 25vw;
+        width: 25vw;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .mbtn {
+        font-size: 18px;
+    }
+}
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+.dev-name {
+    color: rgb(255, 132, 0);
+    font-weight: bold;
+}
+.logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
 }

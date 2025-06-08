@@ -2,11 +2,11 @@ function getCompMove() {
     let Move = '';
     const ramNum = Math.random();
     if (ramNum >= 0 && ramNum < 1 / 3) {
-        Move = 'Rock';
+        Move = 'rock';
     } else if (ramNum >= 1 / 3 && ramNum < 2 / 3) { 
-        Move = 'Paper';
+        Move = 'paper';
     } else {
-        Move = 'Scissor';
+        Move = 'scissors';
     }
     return Move;
 }
@@ -37,12 +37,12 @@ function playerAction(playerMove) {
 
     if (playerMove === compMove) {
         result = 'Tie';
-    } else if (playerMove === "Rock") {
-        result = (compMove === "Scissor") ? 'Win' : 'Lose';
-    } else if (playerMove === "Paper") {
-        result = (compMove === "Rock") ? 'Win' : 'Lose';
-    } else if (playerMove === "Scissor") {
-        result = (compMove === "Paper") ? 'Win' : 'Lose';
+    } else if (playerMove === "rock") {
+        result = (compMove === "scissors") ? 'Win' : 'Lose';
+    } else if (playerMove === "paper") {
+        result = (compMove === "rock") ? 'Win' : 'Lose';
+    } else if (playerMove === "scissors") {
+        result = (compMove === "paper") ? 'Win' : 'Lose';
     }
 
 
@@ -56,7 +56,8 @@ function playerAction(playerMove) {
 
     localStorage.setItem('score', JSON.stringify(score));
     document.querySelector('.result').innerHTML=`You ${result}!`;
-    document.querySelector('.moves').innerHTML=`You picked ${playerMove}. Computer picked ${compMove}`;
+    document.querySelector('.moves').innerHTML=`You: <img src="Images/${playerMove}-emoji.png" class="score-dis">
+        Computer: <img src="Images/${compMove}-emoji.png" class="score-dis"></img>`
 
     UpdateScore()
     
