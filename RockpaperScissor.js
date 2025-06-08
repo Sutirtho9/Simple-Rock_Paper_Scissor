@@ -3,7 +3,7 @@ function getCompMove() {
     const ramNum = Math.random();
     if (ramNum >= 0 && ramNum < 1 / 3) {
         Move = 'Rock';
-    } else if (ramNum >= 1 / 3 && ramNum < 2 / 3) { // <= changed to <
+    } else if (ramNum >= 1 / 3 && ramNum < 2 / 3) { 
         Move = 'Paper';
     } else {
         Move = 'Scissor';
@@ -18,7 +18,12 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 };
 
 
+function UpdateScore(){
+    document.querySelector('.score').
+    innerHTML=`Wins:${score.wins} Loses:${score.lose} Ties:${score.tie}`;
 
+}
+UpdateScore();
 console.log(JSON.parse(localStorage.getItem('score')));
 
 function playerAction(playerMove) {
@@ -46,9 +51,12 @@ function playerAction(playerMove) {
     }
 
     localStorage.setItem('score', JSON.stringify(score));
+    document.querySelector('.result').innerHTML=`You ${result}!`;
+    document.querySelector('.moves').innerHTML=`You picked ${playerMove}. Computer picked ${compMove}`;
 
-    alert(`You picked ${playerMove}. Computer picked ${compMove}. You ${result}!
-W:${score.wins} L:${score.lose} T:${score.tie}`);
+    UpdateScore()
+    
+    
 }
 
 function resetScore() {
@@ -57,4 +65,5 @@ function resetScore() {
     score.tie = 0;
 
     localStorage.removeItem('score');
+    UpdateScore();
 }
