@@ -117,7 +117,10 @@ h2 {
 
 
 
-.btn:hover,
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
 .mbtn:hover {
     cursor: pointer;
     opacity: 0.5;
