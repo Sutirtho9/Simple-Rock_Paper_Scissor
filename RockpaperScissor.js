@@ -72,3 +72,17 @@ function resetScore() {
     localStorage.removeItem('score');
     UpdateScore();
 }
+let IntervalId;
+let Isauto=false;
+function autoPlay(){
+    if(!Isauto){
+         IntervalId=setInterval(function(){
+            const autoMove= getCompMove();
+            playerAction(autoMove);
+        },1000);
+        Isauto=true;
+    }else{
+        clearInterval(IntervalId);
+        Isauto=false;
+    }
+}
