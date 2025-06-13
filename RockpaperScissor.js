@@ -35,13 +35,24 @@ addEventListener('click',()=>{
 
 const re_btn=document.querySelector('.mbtn').
 addEventListener('click',()=>{
-    resetScore();
+    confirm();
 })
 
 const auto_btn=document.querySelector('.auto-btn').
 addEventListener('click',()=>{
     autoPlay();
 })
+
+document.querySelector('.message-cont').addEventListener('click', (event) => {
+    if (event.target.classList.contains('yes-btn')) {
+        resetScore();
+        document.querySelector('.message-cont').innerHTML = "";
+    }
+    
+    if (event.target.classList.contains('no-btn')) {
+        document.querySelector('.message-cont').innerHTML = "";
+    }
+});
 
 document.body.addEventListener('keydown',(event) =>{
     if(event.key==='r' || event.key==='1'){
@@ -130,9 +141,19 @@ function autoPlay(){
             const autoMove= getCompMove();
             playerAction(autoMove);
         },1000);
+        document.querySelector('.auto-btn').innerHTML="&#9209; Stop Playing";
         Isauto=true;
     }else{
         clearInterval(IntervalId);
+         document.querySelector('.auto-btn').innerHTML="&#9658; Auto Play";
         Isauto=false;
     }
 }
+
+function confirm (){
+    const con_disp=`<p>Are you sure you want to reset the score?
+    </p><button class="yes-btn">Yes</button> 
+    <button class="no-btn">No</button>`
+    document.querySelector('.message-cont').innerHTML=con_disp;
+}
+
